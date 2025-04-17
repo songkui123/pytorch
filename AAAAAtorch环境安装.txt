@@ -1,0 +1,18 @@
+# 创建环境（可选）
+conda create -n pytorch_new python=3.9 -y
+conda activate pytorch_new
+
+# 安装 PyTorch + TorchVision（兼容 CUDA 11.6）
+conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.7 -c pytorch -c nvidia -c conda-forge
+
+# 安装其他科学计算库
+conda install numpy==1.24.3 matplotlib==3.7.1 scipy pandas jupyter opencv scikit-learn tqdm pillow -c conda-forge
+
+
+import torch, torchvision, numpy, matplotlib
+
+print(torch.__version__)           # 应输出 2.0.1
+print(torch.cuda.is_available())   # 应返回 True
+print(torch.version.cuda)          # 可能显示 11.7，但仍兼容 11.6
+print(numpy.__version__)           # 应输出 1.24.3
+print(matplotlib.__version__)      # 应输出 3.7.1
